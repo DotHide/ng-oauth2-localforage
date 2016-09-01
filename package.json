@@ -2,7 +2,7 @@
   "name": "ng-oauth2-localforage",
   "version": "0.0.0",
   "description": "AngularJS OAuth2 using Localforage",
-  "main": "index.js",
+  "main": "dist/ng-oauth2-localforage.js",
   "scripts": {
     "postinstall": "bower install"
   },
