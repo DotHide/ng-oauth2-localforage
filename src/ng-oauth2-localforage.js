@@ -1,3 +1,5 @@
 import angular from 'angular';
 
-export default angular.module('ng-oauth2-localforage', []);
+var ngModule = angular.module('ng-oauth2-localforage', []);
+
+export default ngModule;
