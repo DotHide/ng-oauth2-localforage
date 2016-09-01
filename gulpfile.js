@@ -5,6 +5,8 @@ var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var wrap = require('gulp-wrap-umd');
 var pump = require('pump');
+var karma = require('karma')
+  .Server;
 
 var config = {
   name: 'ng-oauth2-localforage.js',
@@ -30,7 +32,8 @@ gulp.task('scripts', [], function(cb) {
   pump([
     gulp.src(config.src),
     babel({
-      presets: ['es2015']
+      modules: 'ignore',
+      blacklist: ['useStrict']
     }),
     concat(config.name),
     wrap(config.umd),
@@ -44,3 +47,20 @@ gulp.task('scripts', [], function(cb) {
     gulp.dest(config.dist)
   ], cb);
 });
+
+/**
+ * Test task.
+ */
+
+gulp.task('test', ['scripts'], function() {
+  var server = new karma({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, function(code) {
+    console.log('Karma has exited with code', code);
+  });
+
+  return server.start();
+});
+
+gulp.task('default', ['test']);

@@ -9,6 +9,13 @@ var defaults = {
   revokePath: '/oauth2/revoke'
 };
 
+var requiredKeys = [
+  'baseUrl',
+  'clientId',
+  'grantPath',
+  'revokePath'
+];
+
 function OAuthProvider() {
   var config;
 
@@ -28,6 +35,13 @@ function OAuthProvider() {
     }
 
     config = angular.extend({}, defaults, params);
+
+    // Check if all required keys are set.
+    angular.forEach(requiredKeys, (key) => {
+      if (!config[key]) {
+        throw new Error(`Missing parameter: ${key}.`);
+      }
+    });
 
     // Remove `baseUrl` trailing slash.
     if ('/' === config.baseUrl.substr(-1)) {
