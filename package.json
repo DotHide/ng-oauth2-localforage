@@ -1,0 +1,24 @@
+{
+  "name": "ng-oauth2-localforage",
+  "version": "0.0.0",
+  "description": "AngularJS OAuth2 using Localforage",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DotHide/ng-oauth2-localforage.git"
+  },
+  "keywords": [
+    "angular",
+    "oauth",
+    "localforage"
+  ],
+  "author": "Martin_nett <dothide@gmail.com> (https://github.com/DotHide)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DotHide/ng-oauth2-localforage/issues"
+  },
+  "homepage": "https://github.com/DotHide/ng-oauth2-localforage#readme"
+}
