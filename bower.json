@@ -1,0 +1,22 @@
+{
+  "name": "ng-oauth2-localforage",
+  "description": "AngularJS OAuth2 using Localforage",
+  "main": "index.js",
+  "authors": [
+    "Martin_nett <dothide@gmail.com> (https://github.com/DotHide)"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "oauth",
+    "localforage"
+  ],
+  "homepage": "https://github.com/DotHide/ng-oauth2-localforage",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
