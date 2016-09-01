@@ -5,8 +5,7 @@ var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var wrap = require('gulp-wrap-umd');
 var pump = require('pump');
-var karma = require('karma')
-  .Server;
+var karma = require('karma').Server;
 
 var config = {
   name: 'ng-oauth2-localforage.js',
@@ -48,6 +47,17 @@ gulp.task('scripts', [], function(cb) {
   ], cb);
 });
 
+gulp.task('scripts-minify', ['scripts'], function(cb) {
+  pump([
+    gulp.src(config.dest + '/' + config.name),
+    uglify(),
+    rename(function(path) {
+      path.extname = '.min.js';
+    }),
+    gulp.dest(config.dist)
+  ], cb);
+});
+
 /**
  * Test task.
  */
@@ -63,4 +73,5 @@ gulp.task('test', ['scripts'], function() {
   return server.start();
 });
 
+gulp.task('build', ['scripts-minify']);
 gulp.task('default', ['test']);
